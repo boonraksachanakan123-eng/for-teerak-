@@ -1,12 +1,7 @@
-# for-teerak-
 <!DOCTYPE html>
-
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ครบรอบ 2 เดือน 💗</title>
@@ -14,304 +9,230 @@
 <style>
 
 *{
-
     box-sizing:border-box;
-
-    font-family:"Arial",sans-serif;
-
+    font-family: "Arial", sans-serif;
 }
 
 body{
-
     margin:0;
-
     overflow:hidden;
-
     background:#ffd6e7;
-
 }
 
 .page{
-
     width:100vw;
-
     height:100vh;
-
     display:none;
-
     justify-content:center;
-
     align-items:center;
-
     flex-direction:column;
-
     text-align:center;
-
-    position:absolute;
-
 }
 
 .active{
-
     display:flex;
+}
 
+
+/* หน้าแรก */
+
+#home{
+    background:linear-gradient(#ffd6e7,#ffc2dc);
 }
 
 h1{
-
-    color:#ff4f9a;
-
+    color:#ff4f91;
     font-size:32px;
-
 }
 
 button{
-
-    margin-top:30px;
-
-    padding:15px 50px;
-
     border:none;
-
-    border-radius:50px;
-
-    background:#ff8fc7;
-
+    padding:18px 45px;
+    border-radius:40px;
+    background:#ff8fba;
     color:white;
-
     font-size:22px;
-
     cursor:pointer;
+    margin-top:30px;
+    box-shadow:0 5px 15px #d98aa8;
+}
 
-    box-shadow:0 5px 15px #ff9dcc;
+
+/* หัวใจลอย */
+
+.heart{
+    position:absolute;
+    color:#ff6fa8;
+    animation:float 5s linear infinite;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(100vh);
+opacity:1;
+}
+
+100%{
+transform:translateY(-20vh);
+opacity:0;
+}
 
 }
 
-.heart{
 
-    font-size:100px;
+/* หน้าที่2 */
 
+#heartPage{
+    background:#ffe0ec;
+}
+
+.bigHeart{
+    font-size:120px;
     cursor:pointer;
-
     animation:pulse 1s infinite;
-
 }
 
 @keyframes pulse{
-
-    50%{transform:scale(1.2)}
-
+50%{
+transform:scale(1.2);
+}
 }
 
-.float{
-
-    position:absolute;
-
-    animation:fly 5s linear infinite;
-
-}
-
-@keyframes fly{
-
-    from{
-
-        transform:translateY(100vh);
-
-        opacity:1;
-
-    }
-
-    to{
-
-        transform:translateY(-10vh);
-
-        opacity:0;
-
-    }
-
-}
 
 #photo{
-
-    width:260px;
-
-    border-radius:20px;
-
+    width:280px;
+    border-radius:25px;
+    margin-top:20px;
     display:none;
-
     animation:zoom 2s;
-
 }
 
 @keyframes zoom{
-
-    from{
-
-        transform:scale(.5);
-
-        opacity:0;
-
-    }
-
-    to{
-
-        transform:scale(1);
-
-        opacity:1;
-
-    }
-
+from{
+transform:scale(.5);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
 }
 
-.gift{
 
+/* กล่องของขวัญ */
+
+.box{
     font-size:120px;
-
     cursor:pointer;
-
 }
 
-.spark{
-
-    font-size:40px;
-
-    animation:pop 1s infinite;
-
-}
-
-@keyframes pop{
-
-    50%{transform:scale(1.5)}
-
-}
 
 .message{
-
     width:85%;
-
-    color:#ff4f9a;
-
+    color:#ff4f91;
     font-size:20px;
-
     line-height:1.8;
-
 }
 
+
 .small{
-
-    margin-top:30px;
-
-    color:#ff6fae;
-
+    position:absolute;
+    bottom:30px;
+    color:#ff639c;
 }
 
 </style>
 
 </head>
 
+
 <body>
 
-<!-- หน้า 1 -->
 
-<div class="page active" id="page1">
+<!-- หน้าแรก -->
+
+<div class="page active" id="home">
 
 <h1>
-
 💗 สุขสันต์วันครบรอบ 2 เดือนน้าาาอ้วน :> 💗
-
 </h1>
 
-<button onclick="next(2)">
-
+<button onclick="nextPage('heartPage')">
 🎀 เริ่มต้น
-
 </button>
 
 </div>
 
-<!-- หน้า 2 -->
 
-<div class="page" id="page2">
 
-<h1>
+<!-- หน้าที่2 -->
 
-กดหัวใจ💗
+<div class="page" id="heartPage">
 
-</h1>
-
-<div class="heart" onclick="showPhoto()">
-
+<div class="bigHeart" onclick="showPhoto()">
 ❤️
-
 </div>
 
-<img id="photo" src="love.jpg">
+<h2>
+กดหัวใจ💗
+</h2>
 
-<button id="giftBtn" onclick="next(3)" style="display:none">
+
+<img id="photo" src="photo.jpg">
+
+
+<button id="giftBtn" style="display:none"
+onclick="nextPage('giftPage')">
 
 🎁 เปิดของขวัญ
 
 </button>
 
+
 </div>
 
-<!-- หน้า 3 -->
 
-<div class="page" id="page3">
 
-<div class="gift" onclick="openGift()">
 
+<!-- หน้าที่3 -->
+
+<div class="page" id="giftPage">
+
+
+<div class="box" onclick="openGift()">
 🎁
-
 </div>
 
-<div id="text" class="message"></div>
+
+<div class="message" id="message"></div>
+
 
 <div class="small">
-
 - จากไอ้ช็อคโกแลตเอง 😋 -
+</div>
+
 
 </div>
 
-</div>
+
+
+
 
 <script>
 
-function next(page){
+
+function nextPage(id){
 
 document.querySelectorAll(".page")
-
 .forEach(p=>p.classList.remove("active"));
 
-document.getElementById("page"+page)
-
+document.getElementById(id)
 .classList.add("active");
 
 }
 
-function hearts(){
 
-let h=document.createElement("div");
-
-h.className="float";
-
-h.innerHTML="💗";
-
-h.style.left=Math.random()*100+"vw";
-
-h.style.fontSize=(20+Math.random()*40)+"px";
-
-document.body.appendChild(h);
-
-setTimeout(()=>{
-
-h.remove();
-
-},5000)
-
-}
-
-setInterval(hearts,300);
 
 function showPhoto(){
 
@@ -319,18 +240,21 @@ let photo=document.getElementById("photo");
 
 photo.style.display="block";
 
-document.querySelector(".heart")
-
-
-
 document.getElementById("giftBtn")
-
 .style.display="block";
+
+createHearts();
 
 }
 
-let msg=
 
+
+
+function openGift(){
+
+document.querySelector(".box").innerHTML="💗";
+
+let text=
 `2เดือนละนะอ้วนน
 
 ขอบคุณสำหรับเวลาที่ผ่านมานะอ้วน
@@ -341,39 +265,71 @@ let msg=
 
 อยู่เป็นความสุขให้เค้าแบบนี้นานๆนะอ้วน
 
-เค้ารักพี่นะคะ
+เค้ารักพี่นะคะอยากมีพี่อยู่ด้วยกันไปนานนานนเล้ยย
 
-อยากมีพี่อยู่ด้วยกันไปนานนานนเล้ยย
-
-รักอ้วนมากมากกก
-
-จุ๊บมั้วว🩷`;
-
-function openGift(){
-
-document.querySelector(".gift")
+รักอ้วนมากมากกก จุ๊บมั้วว🩷`;
 
 
 let i=0;
 
-let box=document.getElementById("text");
+let box=document.getElementById("message");
+
 
 let timer=setInterval(()=>{
 
-box.innerHTML+=msg[i];
+box.innerHTML += text[i];
 
 i++;
 
-if(i>=msg.length)
+if(i>=text.length){
 
 clearInterval(timer);
 
-},80);
+createHearts();
 
 }
 
+},80);
+
+
+}
+
+
+
+
+function createHearts(){
+
+for(let i=0;i<40;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="💗";
+
+h.style.left=Math.random()*100+"%";
+
+h.style.animationDuration=
+(3+Math.random()*4)+"s";
+
+
+document.body.appendChild(h);
+
+
+setTimeout(()=>{
+
+h.remove();
+
+},6000);
+
+
+}
+
+}
+
+
 </script>
 
-</body>
 
+</body>
 </html>
