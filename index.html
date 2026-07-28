@@ -90,7 +90,7 @@ opacity:0;
 .bigHeart{
     font-size:120px;
     cursor:pointer;
-    animation:pulse 1s infinite;
+    animation:pulse 1s ;
 }
 
 @keyframes pulse{
@@ -179,7 +179,7 @@ opacity:1;
 </h2>
 
 
-<img id="photo" src="photo.jpg">
+<img id="photo" src="love.jpg">
 
 
 <button id="giftBtn" style="display:none"
@@ -297,20 +297,7 @@ createHearts();
 
 
 
-function createHearts(){
 
-for(let i=0;i<40;i++){
-
-let h=document.createElement("div");
-
-h.className="heart";
-
-h.innerHTML="💗";
-
-h.style.left=Math.random()*100+"%";
-
-h.style.animationDuration=
-(3+Math.random()*4)+"s";
 
 
 document.body.appendChild(h);
